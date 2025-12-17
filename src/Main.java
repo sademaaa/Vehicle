@@ -11,7 +11,7 @@ public class Main {
         System.out.println(client1);
 
         if (car1.price() < car2.price()) {
-            System.out.println("Toyota is cheaper than BMW");
+            System.out.println("Toyota is cheaper than BMW.");
         } else {
             System.out.println("BMW is more expensive than Toyota");
         }

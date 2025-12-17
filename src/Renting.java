@@ -13,7 +13,7 @@ public class Renting {
         } else if (v1.price() > v2.price()) {
             System.out.println(v2.getBrand() + " is cheaper.");
         } else {
-            System.out.println("Both vehicles have the same price.");
+            System.out.println("Both vehicles have the same price");
         }
     }
 }

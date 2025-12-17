@@ -31,7 +31,7 @@ public class Vehicle {
     }
 
     public String toString() {
-        return type + " " + brand + " " + price;
+        return type + " " + brand + "  " + price;
     }
 
 }
