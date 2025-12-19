@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        Vehicle car1 = new Vehicle("Car", "Toyota", 10000);
+        Vehicle car1 = new Vehicle("Car", "Toyotaa", 10000);
         Vehicle car2 = new Vehicle("Car", "BMW", 15000);
         Vehicle car3 = new Vehicle("Car", "Honda", 20200);
         Client client1 = new Client("Adema", "+77089949485");
