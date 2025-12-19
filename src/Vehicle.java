@@ -23,7 +23,7 @@ public class Vehicle {
         this.brand = brand;
     }
 
-    public double price() {
+    public int price() {
         return price;
     }
     public void price(int price) {
