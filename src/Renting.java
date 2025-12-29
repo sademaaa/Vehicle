@@ -1,19 +1,38 @@
+import java.util.ArrayList;
+
 public class Renting {
 
-    public void showVehicle(Vehicle vehicle) {
-        System.out.println(vehicle);
+    private ArrayList<Vehicle> vehicles = new ArrayList<>();
+
+    public void addVehicle(Vehicle v) {
+        vehicles.add(v);
+
+
     }
 
-    public void compareVehicles(Vehicle v1, Vehicle v2) {
-        System.out.println(v1);
-        System.out.println(v2);
+    public void showAllVehicles() {
+        for (Vehicle v : vehicles) {
+            System.out.println(v);
+        }
+    }
 
-        if (v1.price() < v2.price()) {
-            System.out.println(v1.getBrand() + " is cheaper.");
-        } else if (v1.price() > v2.price()) {
-            System.out.println(v2.getBrand() + " is cheaper.");
-        } else {
-            System.out.println("Both vehicles have the same price");
+    public void showCheapVehicles(int maxPrice) {
+        for (Vehicle v : vehicles) {
+            if (v.getPrice() <= maxPrice) {
+                System.out.println(v);
+            }
+        }
+    }
+
+    public void sortByPrice() {
+        for (int i = 0; i < vehicles.size() - 1; i++) {
+            for (int j = i + 1; j < vehicles.size(); j++) {
+                if (vehicles.get(i).getPrice() > vehicles.get(j).getPrice()) {
+                    Vehicle temp = vehicles.get(i);
+                    vehicles.set(i, vehicles.get(j));
+                    vehicles.set(j, temp);
+                }
+            }
         }
     }
 }

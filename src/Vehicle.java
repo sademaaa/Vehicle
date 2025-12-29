@@ -1,7 +1,8 @@
 public class Vehicle {
-    private String type;
-    private String brand;
-    private int price;
+
+    protected String type;
+    protected String brand;
+    protected int price;
 
     public Vehicle(String type, String brand, int price) {
         this.type = type;
@@ -9,29 +10,29 @@ public class Vehicle {
         this.price = price;
     }
 
-    public String getType() {
-        return type;
-    }
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getBrand() {
         return brand;
     }
-    public void setBrand(String model) {
-        this.brand = brand;
-    }
 
-    public int price() {
+    public int getPrice() {
         return price;
     }
-    public void price(int price) {
-        this.price = price;
-    }
 
+    @Override
     public String toString() {
-        return type + " " + brand + "  " + price;
+        return type + " " + brand + " " + price;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Vehicle)) return false;
+        Vehicle v = (Vehicle) obj;
+        return price == v.price && brand.equals(v.brand);
+    }
+
+    @Override
+    public int hashCode() {
+        return brand.hashCode() + price;
+    }
 }

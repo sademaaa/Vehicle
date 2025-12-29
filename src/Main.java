@@ -1,25 +1,30 @@
 public class Main {
+
     public static void main(String[] args) {
 
-        Vehicle car1 = new Vehicle("Car", "Toyotaa", 10000);
-        Vehicle car2 = new Vehicle("Car", "BMW", 15000);
-        Vehicle car3 = new Vehicle("Car", "Honda", 20200);
-        Client client1 = new Client("Adema", "+77089949485");
+        Renting service = new Renting();
 
-        System.out.println(car1);
-        System.out.println(car2);
-        System.out.println(client1);
+        Vehicle car1 = new Car("Toyota", 10000);
+        Vehicle car2 = new Car("BMW", 15000);
+        Vehicle car3 = new Car("Hendai", 24000);
 
-        if (car1.price() < car2.price() & car1.price()<car3.price()) {
-            System.out.println("Toyota is cheaper than BMW and Honda.");
-        }
-        else if (car2.price() < car3.price() && car2.price() < car1.price()) {
-            System.out.println("BMW is cheaper than toyota and Honda.");
-        }
-        else if (car3.price() < car2.price() && car3.price() < car1.price()) {
-            System.out.println("Honda is cheaper than toyota and BMW.");}
-        else {
-            System.out.println("prices are equal");
-        }
+        Client client = new Client("Adema", "+77089949485");
+
+        service.addVehicle(car1);
+        service.addVehicle(car2);
+        service.addVehicle(car3);
+
+        System.out.println("All vehicles:");
+        service.showAllVehicles();
+
+        System.out.println("\nCheap vehicles:");
+        service.showCheapVehicles(12000);
+
+        System.out.println("\nSorted vehicles:");
+        service.sortByPrice();
+        service.showAllVehicles();
+
+        System.out.println("\n");
+        System.out.println(client);
     }
-    }
+}
