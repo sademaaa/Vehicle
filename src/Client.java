@@ -16,7 +16,6 @@ public class Client {
         return phone;
     }
 
-
     @Override
     public String toString() {
         return "Client: " + name + ", phone: " + phone;

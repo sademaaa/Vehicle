@@ -6,8 +6,6 @@ public class Renting {
 
     public void addVehicle(Vehicle v) {
         vehicles.add(v);
-
-
     }
 
     public void showAllVehicles() {
