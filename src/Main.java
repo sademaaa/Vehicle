@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
@@ -6,44 +7,38 @@ public class Main {
 
         Renting service = new Renting();
         DBConnection db = new DBConnection();
+        Scanner sc = new Scanner(System.in);
 
-        Vehicle car1 = new Car("Toyota", 12000);
-        Vehicle car2 = new Car("BMW", 15000);
-        Vehicle car3 = new Car("Hendai", 24000);
+        System.out.print("How many vehicles do you want to add? ");
+        int count = sc.nextInt();
+        sc.nextLine();
 
-        Client client = new Client("Adema", "+77089949485");
+        for (int i = 0; i < count; i++) {
 
-        service.addVehicle(car1);
-        service.addVehicle(car2);
-        service.addVehicle(car3);
+            System.out.println("\nVehicle " + (i + 1));
 
-        System.out.println("All vehicles:");
+            System.out.print("Brand: ");
+            String brand = sc.nextLine();
+
+            System.out.print("Price: ");
+            int price = sc.nextInt();
+            sc.nextLine();
+
+            Vehicle vehicle = new Car(brand, price);
+
+            service.addVehicle(vehicle);
+            db.insertVehicle(vehicle);
+        }
+
+        System.out.println("\nAll vehicles (from program):");
         service.showAllVehicles();
 
-        System.out.println("\nCheap vehicles:");
-        service.showCheapVehicles(12000);
-
-        System.out.println("\nSorted vehicles:");
-        service.sortByPrice();
-        service.showAllVehicles();
-
-        System.out.println("\nClient info:");
-        System.out.println(client);
-
-        System.out.println("\nDATABASE");
-
-        db.insertVehicle(car1);
-        db.insertVehicle(car2);
-        db.insertVehicle(car3);
-
+        System.out.println("\nAll vehicles (from database):");
         ArrayList<Vehicle> vehiclesFromDB = db.readVehicles();
-        System.out.println("From DB:");
         for (Vehicle v : vehiclesFromDB) {
             System.out.println(v);
         }
 
-        db.updatePrice("BMW", 16000);
-
-        db.deleteVehicle("Hendai");
+        sc.close();
     }
 }

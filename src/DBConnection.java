@@ -15,7 +15,7 @@ public class DBConnection {
         try (Connection conn = connect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, v.getClass().getSimpleName()); // например "Car"
+            stmt.setString(1, v.getClass().getSimpleName());
             stmt.setString(2, v.getBrand());
             stmt.setInt(3, v.getPrice());
             stmt.executeUpdate();
