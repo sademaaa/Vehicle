@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Vehicles</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        table { border-collapse: collapse; width: 60%; margin: auto; }
+        th, td { border: 1px solid #333; padding: 8px; text-align: center; }
+        th { background-color: #333; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        button { padding: 8px 16px; margin: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+<h2 style="text-align:center;">Vehicles</h2>
+<table id="vehiclesTable">
+    <thead>
+    <tr><th>Brand</th><th>Price</th></tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<script>
+    async function loadVehicles() {
+        const resp = await fetch('http://localhost:8080/vehicles');
+        const data = await resp.json();
+        const tbody = document.querySelector("#vehiclesTable tbody");
+        tbody.innerHTML = '';
+        data.forEach(v => {
+            tbody.innerHTML += `<tr><td>${v.brand}</td><td>${v.price}</td></tr>`;
+        });
+    }
+    loadVehicles();
+</script>
+</body>
+</html>
