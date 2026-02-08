@@ -21,7 +21,7 @@ public class RentingService {
     }
 
     public List<Vehicle> getAllSorted() {
-        // Lambdas (Требование №8)
+
         return repository.findAll().stream()
                 .sorted(Comparator.comparingInt(Vehicle::getPrice))
                 .toList();

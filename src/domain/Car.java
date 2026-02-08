@@ -10,7 +10,7 @@ public class Car extends Vehicle {
         return "Car";
     }
 
-    // Паттерн Builder (Требование №9)
+
     public static class Builder {
         private String brand;
         private int price;
